@@ -1,4 +1,4 @@
-from __future__ import division
+
 
 import six
 
@@ -158,7 +158,7 @@ def ice_plot(ice_data, frac_to_plot=1.,
         norm = colors.Normalize(colors_raw.min(), colors_raw.max())
         m = cm.ScalarMappable(norm=norm, cmap=cmap)
 
-        for color_raw, (_, ice_curve) in zip(colors_raw, plot_ice_data.iteritems()):
+        for color_raw, (_, ice_curve) in zip(colors_raw, iter(plot_ice_data.items())):
             c = m.to_rgba(color_raw)
             ax.plot(x, ice_curve, c=c, zorder=0, **kwargs)
     else:
